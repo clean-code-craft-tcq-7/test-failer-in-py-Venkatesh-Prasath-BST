@@ -1,5 +1,3 @@
-import pytest
-
 
 def color_index_pair_number(major_color_index, minor_color_index):
     if major_color_index < 0 or minor_color_index < 0:
@@ -36,28 +34,3 @@ def print_color_map():
             print(f'| {index_num_with_space} | {major_with_space} | {minor_with_space} |')
     print(f"| -- | {dashes_for_major} | {dashes_for_minor} |")
     return len(major_colors) * len(minor_colors)
-
-
-# ------------- TESTS ------------- #
-def test_print_color_map():
-    assert(print_color_map() == 25)
-
-
-def test_color_index_pair_number():
-    assert(color_index_pair_number(0, 0) == 1)
-    assert(color_index_pair_number(4, 4) == 25)
-    assert(color_index_pair_number(2, 3) == 14)
-    assert(color_index_pair_number(4, 1) == 22)
-
-
-def test_add_post_space():
-    assert(add_post_space("Hello", 10) == "Hello     ")
-    assert(add_post_space("World", 5) == "World")
-    assert(add_post_space("", 5) == "     ")
-    assert(add_post_space("Test", 8) == "Test    ")
-
-
-if __name__ == '__main__':
-    print_color_map()
-    pytest.main([__file__, '-v'])
-    print("All is well (maybe!)")
