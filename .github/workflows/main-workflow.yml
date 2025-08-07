@@ -21,14 +21,6 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: tshirts fail
+    - name: tests fail
       if: always()
-      run: python tshirts.py
-    
-    - name: misaligned fail
-      if: always()
-      run: python misaligned.py
-
-    - name: weather fail
-      if: always()
-      run: python weatherreport.py
+      run: python -m pytest ./ -v

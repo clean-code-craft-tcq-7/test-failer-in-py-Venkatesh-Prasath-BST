@@ -23,7 +23,8 @@ def sensor_stub():
 def test_rainy():
     weather = report(sensor_stub)
     print(weather)
-    assert("rain" in weather)
+    assert ("rain" in weather)
+
 
 def test_high_precipitaion():
     # This instance of stub needs to be different-
@@ -34,7 +35,7 @@ def test_high_precipitaion():
 
     # strengthen the assert to expose the bug
     # (function returns Sunny day, it should predict rain)
-    assert("rain" in weather)
+    assert ("rain" in weather)
 
 
 if __name__ == '__main__':
