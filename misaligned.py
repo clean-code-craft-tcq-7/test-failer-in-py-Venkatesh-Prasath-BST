@@ -34,3 +34,7 @@ def print_color_map():
             print(f'| {index_num_with_space} | {major_with_space} | {minor_with_space} |')
     print(f"| -- | {dashes_for_major} | {dashes_for_minor} |")
     return len(major_colors) * len(minor_colors)
+
+
+if __name__ == '__main__':
+    print_color_map()

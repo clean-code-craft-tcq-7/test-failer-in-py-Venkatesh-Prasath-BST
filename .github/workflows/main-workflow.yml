@@ -21,6 +21,10 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+    - name: print misaligned table
+      if: always()
+      run: python misaligned.py
+
     - name: tests fail
       if: always()
       run: python -m pytest ./ -v
