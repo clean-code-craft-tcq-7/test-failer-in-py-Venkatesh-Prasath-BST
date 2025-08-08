@@ -1,20 +1,10 @@
 
 def color_index_pair_number(major_color_index, minor_color_index):
-    if major_color_index < 0 or minor_color_index < 0:
-        raise ValueError("Indices must be non-negative")
     return major_color_index * 5 + minor_color_index + 1
 
 
 def __number_of_characters_in_largest_value_in_list(input_list):
-    if not input_list:
-        return 0
     return max(len(str(item)) for item in input_list)
-
-
-def add_post_space(input_string, max_length):
-    if len(input_string) >= max_length:
-        return input_string
-    return input_string + ' ' * (max_length - len(input_string))
 
 
 def print_color_map():
@@ -28,13 +18,10 @@ def print_color_map():
         print(f"| -- | {dashes_for_major} | {dashes_for_minor} |")
         for j, minor in enumerate(minor_colors):
             index_num = color_index_pair_number(i, j)
-            index_num_with_space = add_post_space(str(index_num), 2)
-            major_with_space = add_post_space(major, major_color_max_char)
-            minor_with_space = add_post_space(minor, minor_color_max_char)
-            print(f'| {index_num_with_space} | {major_with_space} | {minor_with_space} |')
+            print(f'| {index_num:<2} | {major:<{major_color_max_char}} | {minor:<{minor_color_max_char}} |')
     print(f"| -- | {dashes_for_major} | {dashes_for_minor} |")
     return len(major_colors) * len(minor_colors)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     print_color_map()
